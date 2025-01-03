@@ -150,11 +150,16 @@
   <main class="container">
     <div class="bg-body-tertiary p-1 rounded">
       <div class="d-flex flex-column p-4 gap-4 py-md-5 align-items-center justify-content-center">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Add tarefa" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">
-            Add
-          </button>
+        <div class="col-12">
+
+          <form id="form-add-taks">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Digite o titulo de sua tarefa" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+              <button class="btn btn-outline-success" type="submit" id="button-addon2">
+                Adicionar tarefa
+              </button>
+            </div>
+          </form>
         </div>
         <div class="list-group">
           <label class="list-group-item list-group-item-action cursor-pointer d-flex gap-3">
@@ -193,7 +198,6 @@
               </small>
             </span>
           </label>
-          
         </div>
       </div>
     </div>
