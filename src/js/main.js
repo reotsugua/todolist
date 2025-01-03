@@ -1,7 +1,3 @@
-// Import our custom CSS
-import '../scss/styles.scss'
-import '../css/list-groups.css'
-import './color-modes.js'
+import { print } from "./shared/helpers.js";
 
-// Import all of Bootstrap's JS
-import * as bootstrap from 'bootstrap'
+print('renan')
