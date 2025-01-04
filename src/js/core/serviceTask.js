@@ -1,9 +1,9 @@
 function createTask(params) {
-    console.log(`criando task ${params}`);
+    localStorage.setItem('db_todoList_tasks', JSON.stringify(params));
 }
 
-function getTask(params) {
-    console.log(`Pegando task: ${params}`);
+function getTasks() {
+    return JSON.parse(localStorage.getItem('db_todoList_tasks'));
 }
 
 function updateTaks(params) {
@@ -18,4 +18,4 @@ function deleteTask(params) {
 
 
 
-export { createTask, getTask, updateTaks, deleteTask};
+export { createTask, getTasks, updateTaks, deleteTask};
