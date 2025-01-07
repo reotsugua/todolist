@@ -1,17 +1,23 @@
 const _DB = 'db_todoList_tasks';
+const gerateId = () => {
+    let id = localStorage.getItem('taksIdCounter') || 0;
+    id = parseInt(id) + 1; // Incrementa o contador
+    localStorage.setItem('taskIdCounter', id); // Atualiza o contador no Local Storage
+    return id; // Retorna o novo ID
+}
 
 function getTasks_DB() {
-    return JSON.parse(localStorage.getItem(_DB));
+    return JSON.parse(localStorage.getItem(_DB)) || [];
 }
 
 function createTask_DB(params) {
     const arrFromDb = getTasks_DB();
-    if (!arrFromDb) {
-        const arrTask = [];
-        arrTask.push(params);
-        localStorage.setItem(_DB, JSON.stringify(arrTask));
-        return;
-    }
+    // if (!arrFromDb) {
+    //     const arrTask = [];
+    //     arrTask.push(params);
+    //     localStorage.setItem(_DB, JSON.stringify(arrTask));
+    //     return;
+    // }
     
     arrFromDb.push(params);
     localStorage.setItem(_DB, JSON.stringify(arrFromDb));

@@ -4,13 +4,6 @@ const htmlTask = value => `
     <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
     <span class="pt-1 form-checked-content">
         <span class="title-task text-uppercase"><strong>${value}</strong></span>
-        <small class="d-block text-body-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-calendar-event me-1" viewBox="0 0 16 16">
-                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
-                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
-            </svg>
-            1:00–2:00pm
-        </small>
     </span>
     <div class="ms-auto align-content-around">
               <a href="#" class="icon-link icon-link-hover" title="Editar Tarefa">
@@ -39,7 +32,7 @@ const addTaskToList = valueInput => {
 
 const listTasksToDB = () => {
     const arrFromDb = getTasks_DB();
-    if (!arrFromDb) return console.log('nada pra listar');
+    if (arrFromDb.length === 0) return console.log('nada pra listar');
     
     const arrTasks = [];
     arrFromDb.forEach(element => {
@@ -58,15 +51,13 @@ const updateTaskToList = (listItem) => {
     const titleElement = listItem?.querySelector('.title-task');
     const currentTask = titleElement?.textContent;
 
-    if (!currentTask) return; // Retorna se não encontrar a tarefa atual
+    if (!currentTask) return;
 
     const newTask = prompt(`Digite a nova tarefa:`, currentTask);
-    if (!newTask || newTask.trim() === currentTask.trim()) return; // Sai se o valor for inválido ou igual ao atual
+    if (!newTask || newTask.trim() === currentTask.trim()) return;
 
-    // Atualiza a interface
     titleElement.innerHTML = `<strong>${newTask.trim()}</strong>`;
     
-    // Atualiza no banco de dados
     updateTasks_DB(currentTask, newTask.trim());
 };
 

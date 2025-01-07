@@ -13,9 +13,7 @@ const createTask = e => {
     addTaskToList(valueInput);  
 }
 
-const updateTask = e => {
-    e.preventDefault();
-    
+const updateTask = e => {    
     const penIcon = e.target.closest('.bi-pencil-fill');
     if (!penIcon) return;
 
@@ -23,14 +21,14 @@ const updateTask = e => {
     updateTaskToList(listItem);  
 }
 
-const deleteTask = e => {
-    e.preventDefault();
-    
+const deleteTask = e => {    
     const trashIcon = e.target.closest('.bi-trash-fill');
     if (!trashIcon) return;
 
     const listItem = trashIcon.closest('.list-group-item'); 
-    deleteTaskToList(listItem);  
+    deleteTaskToList(listItem);
+    console.log( Date.now());
+      
 }
 
 formAddTaks.addEventListener('submit', createTask);
