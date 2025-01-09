@@ -26,9 +26,7 @@ const deleteTask = e => {
     if (!trashIcon) return;
 
     const listItem = trashIcon.closest('.list-group-item'); 
-    deleteTaskToList(listItem);
-    console.log( Date.now());
-      
+    deleteTaskToList(listItem);      
 }
 
 formAddTaks.addEventListener('submit', createTask);

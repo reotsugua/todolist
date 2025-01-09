@@ -1,4 +1,4 @@
-import { getTasks_DB, createTask_DB, updateTasks_DB,deleteTask_DB } from "../core/serviceTask.js";
+import { getTasks_DB, createTask_DB, updateTasks_DB, deleteTask_DB, gerateId } from "../core/serviceTask.js";
 
 const htmlTask = value => `
     <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
@@ -24,10 +24,13 @@ const addTaskToList = valueInput => {
     const label = document.createElement('label');
     label.classList.add('list-group-item', 'list-group-item-action', 'cursor-pointer', 'd-flex', 'gap-3');
 
+    const _id = gerateId();
+    label.setAttribute('data-id', _id);
+
     label.innerHTML = htmlTask(valueInput);
     
     taskList.append(label);
-    createTask_DB(valueInput);
+    createTask_DB(_id, valueInput);
 };
 
 const listTasksToDB = () => {
@@ -35,10 +38,10 @@ const listTasksToDB = () => {
     if (arrFromDb.length === 0) return console.log('nada pra listar');
     
     const arrTasks = [];
-    arrFromDb.forEach(element => {
+    arrFromDb.forEach(({id, name}) => {
         const label = `
-            <label class="list-group-item list-group-item-action cursor-pointer d-flex gap-3">
-                ${htmlTask(element)}
+            <label class="list-group-item list-group-item-action cursor-pointer d-flex gap-3" data-id="${id}">
+                ${htmlTask(name)}
             </label>
         `; 
         arrTasks.push(label);        
