@@ -1,4 +1,4 @@
-import { getTasks_DB, createTask_DB, updateTasks_DB, deleteTask_DB, gerateId } from "../core/serviceTask.js";
+import { getTasks_DB, createTask_DB, updateTasks_DB, deleteTask_DB, gerateId, updateStatusTasks_DB } from "../core/serviceTask.js";
 
 const htmlTask = value => `
     <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
@@ -73,4 +73,10 @@ const deleteTaskToList = (listItem) => {
     }
 };
 
-export {addTaskToList, listTasksToDB, updateTaskToList, deleteTaskToList};
+const updateStatusTaskToList = (titleListItem, statusCheckbox) => {
+    // Era pra checked + riscar name, mas o css ja ta fazendo isso.
+    
+    updateStatusTasks_DB(titleListItem, statusCheckbox);
+};
+
+export {addTaskToList, listTasksToDB, updateTaskToList, deleteTaskToList, updateStatusTaskToList};

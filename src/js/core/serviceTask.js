@@ -34,6 +34,19 @@ function updateTasks_DB(titleCurrentTask, titleNewTask) {
     localStorage.setItem(_DB, JSON.stringify(arrTasks));
 }
 
+function updateStatusTasks_DB(titleListItem, statusCheckbox) {
+    const arrTasks = getTasks_DB();
+
+    const index = arrTasks.findIndex(({name}) => name === titleListItem);
+    if (index === -1) {
+        console.warn('Tarefa não encontrada!');
+        return;
+    }    
+    
+    arrTasks[index].completed = statusCheckbox;
+    localStorage.setItem(_DB, JSON.stringify(arrTasks));
+}
+
 function deleteTask_DB(titleTask) {
     const arrTasks = getTasks_DB();
 
@@ -47,4 +60,6 @@ function deleteTask_DB(titleTask) {
     localStorage.setItem(_DB, JSON.stringify(arrTasks));
 }
 
-export { createTask_DB, getTasks_DB, updateTasks_DB, deleteTask_DB, gerateId};
+
+
+export { createTask_DB, getTasks_DB, updateTasks_DB, deleteTask_DB, gerateId, updateStatusTasks_DB};
