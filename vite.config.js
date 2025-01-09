@@ -25,6 +25,7 @@ export default {
     VitePWA({
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
+        "id": "/todolist/",
         name: 'My Awesome App',
         short_name: 'MyApp',
         description: 'My Awesome App description',
@@ -41,25 +42,25 @@ export default {
           }
         ],
         background_color: "#3367D6",
-        display: "standalone",
+        display: "minimal-ui",
         scope: "/",
         shortcuts: [{
             "name": "How's the weather today?",
-            "short_name": "Today",
+            "short_name": "hoje",
             "description": "View weather information for today",
-            "url": "/today?source=pwa",
+            "url": "/todolist/",
             "icons": [{
-              "src": "/images/today.png",
+              "src": "android-chrome-192x192.png",
               "sizes": "192x192"
             }]
           },
           {
             "name": "How's the weather tomorrow?",
-            "short_name": "Tomorrow",
+            "short_name": "amanha",
             "description": "View weather information for tomorrow",
-            "url": "/tomorrow?source=pwa",
+            "url": "/todolist/",
             "icons": [{
-              "src": "/images/tomorrow.png",
+              "src": "android-chrome-192x192.png",
               "sizes": "192x192"
             }]
           }

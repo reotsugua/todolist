@@ -8,8 +8,13 @@ const createTask = e => {
     
     const thisForm = e.target;
     const valueInput = e.target[0].value;
-    thisForm.reset();
 
+    thisForm.reset();
+    
+    if (valueInput.trim() === '') {
+        return alert('Você não pode adicionar uma tarefa tem titulo!');
+    }
+        
     addTaskToList(valueInput);  
 }
 

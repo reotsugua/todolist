@@ -21,19 +21,29 @@ function createTask_DB(id, valueInput) {
     localStorage.setItem(_DB, JSON.stringify(arrFromDb));
 }
 
-function updateTasks_DB(element, replace) {
+function updateTasks_DB(titleCurrentTask, titleNewTask) {
     const arrTasks = getTasks_DB();
-    const index = arrTasks.indexOf(element);
-    arrTasks.splice(index,1, replace);
+
+    const index = arrTasks.findIndex(({name}) => name === titleCurrentTask);
+    if (index === -1) {
+        console.warn('Tarefa não encontrada!');
+        return;
+    }    
     
+    arrTasks[index].name = titleNewTask;
     localStorage.setItem(_DB, JSON.stringify(arrTasks));
 }
 
-function deleteTask_DB(params) {
+function deleteTask_DB(titleTask) {
     const arrTasks = getTasks_DB();
-    const index = arrTasks.indexOf(params);
-    arrTasks.splice(index,1);
+
+    const index = arrTasks.findIndex(({name}) => name === titleTask);
+    if (index === -1) {
+        console.warn('Tarefa não encontrada!');
+        return;
+    }  
     
+    arrTasks.splice(index,1);
     localStorage.setItem(_DB, JSON.stringify(arrTasks));
 }
 
