@@ -26,10 +26,10 @@ export default {
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
         "id": "/todolist/",
-        name: 'My Awesome App',
-        short_name: 'MyApp',
-        description: 'My Awesome App description',
-        theme_color: '#A475EF',
+        name: 'Todolist por Renan Augusto',
+        short_name: 'Todolist',
+        description: 'Descrição do Todolist',
+        theme_color: '#3367D6',
         icons: [{
             src: 'android-chrome-192x192.png',
             sizes: '192x192',
@@ -42,7 +42,7 @@ export default {
           }
         ],
         background_color: "#3367D6",
-        display: "minimal-ui",
+        display: "standalone",
         scope: "/",
         shortcuts: [{
             "name": "How's the weather today?",
@@ -65,7 +65,6 @@ export default {
             }]
           }
         ],
-        description: "Weather forecast information",
         screenshots: [{
             "src": "/images/screenshot1.png",
             "type": "image/png",
