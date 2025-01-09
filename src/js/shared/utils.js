@@ -1,9 +1,9 @@
 import { getTasks_DB, createTask_DB, updateTasks_DB, deleteTask_DB, gerateId, updateStatusTasks_DB } from "../core/serviceTask.js";
 
-const htmlTask = value => `
-    <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
+const htmlTask = (name, checked) => `
+    <input class="form-check-input flex-shrink-0" type="checkbox" ${checked ? 'checked' : ''} style="font-size: 1.375em;">
     <span class="pt-1 form-checked-content">
-        <span class="title-task text-uppercase"><strong>${value}</strong></span>
+        <span class="title-task text-uppercase"><strong>${name}</strong></span>
     </span>
     <div class="ms-auto align-content-around">
               <a href="#" class="icon-link icon-link-hover" title="Editar Tarefa">
@@ -38,10 +38,10 @@ const listTasksToDB = () => {
     if (arrFromDb.length === 0) return console.log('nada pra listar');
     
     const arrTasks = [];
-    arrFromDb.forEach(({id, name}) => {
+    arrFromDb.forEach(({id, name, completed}) => {
         const label = `
             <label class="list-group-item list-group-item-action cursor-pointer d-flex gap-3" data-id="${id}">
-                ${htmlTask(name)}
+                ${htmlTask(name, completed)}
             </label>
         `; 
         arrTasks.push(label);        
