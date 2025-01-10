@@ -19,7 +19,7 @@
       cursor: pointer;
     }
 
-    .icon-link-hover{
+    .icon-link-hover {
       --bs-icon-link-transform: translate3d(0, -.125rem, 0);
     }
 
@@ -109,7 +109,7 @@
     </symbol>
   </svg>
 
-  <div class="dropdown position-fixed bottom-0 end-0 mb-2 me-auto pe-4 bd-mode-toggle">
+  <!-- <div class="dropdown position-fixed bottom-0 end-0 mb-2 me-auto pe-4 bd-mode-toggle">
     <button class="btn btn-dark py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
       aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
       <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
@@ -155,7 +155,7 @@
         </button>
       </li>
     </ul>
-  </div>
+  </div> -->
 
 
   <main class="container">
@@ -163,8 +163,10 @@
       <h5 class="text-primary fw-bold text-uppercase">lista de tarefas</h5>
       <a class="nav-item dropdown">
         <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical mt-1" viewBox="0 0 16 16">
-            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-three-dots-vertical mt-1" viewBox="0 0 16 16">
+            <path
+              d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
           </svg>
         </a>
         <ul class="dropdown-menu">
@@ -177,25 +179,25 @@
         </ul>
       </a>
     </div>
-    
-      <div class="d-flex flex-column pb-4 gap-4 align-items-center justify-content-center">
-        <div class="col-12">
-          <form id="form-add-taks">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Digite sua tarefa"
-                aria-label="Recipient's username" aria-describedby="button-addon2" required>
-              <button class="btn btn-outline-success" type="submit" id="button-addon2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
-                  viewBox="0 0 16 16">
-                  <path
-                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-                </svg>
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="list-group">
-          <!-- <label class="list-group-item list-group-item-action cursor-pointer d-flex gap-3">
+
+    <div class="d-flex flex-column pb-4 gap-4 align-items-center justify-content-center">
+      <div class="col-12">
+        <form id="form-add-taks">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Digite sua tarefa" aria-label="Recipient's username"
+              aria-describedby="button-addon2" required>
+            <button class="btn btn-outline-success" type="submit" id="button-addon2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="list-group">
+        <!-- <label class="list-group-item list-group-item-action cursor-pointer d-flex gap-3">
             <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
             <span class="pt-1 form-checked-content">
               <strong>${value}</strong>
@@ -220,11 +222,130 @@
               </a>
             </div>
           </label> -->
-          <!-- <h5 class="text-body-tertiary text-center">Sua lista de tarefas está vazia.</h5> -->
-        </div>
+        <!-- <h5 class="text-body-tertiary text-center">Sua lista de tarefas está vazia.</h5> -->
       </div>
-    
+    </div>
+
   </main>
+
+  <nav class="fixed-bottom">
+    <div class="container-fluid d-flex justify-content-between">
+      <div class="align-self-center">
+        <a class="navbar-brand me-3" href="#">Pendentes</a>
+        <a class="navbar-brand" href="#">Completas</a>
+      </div>
+      <ul class="navbar-nav">
+        <li class="nav-item dropup">
+          <!-- <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropup</a> -->
+          <button class="btn py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+            <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+              <use href="#circle-half"></use>
+            </svg>
+            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+          </button>
+          <ul class="dropdown-menu absolute shadow" aria-labelledby="bd-theme-text">
+            <li>
+              <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                aria-pressed="false">
+                <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                  <use href="#sun-fill"></use>
+                </svg>
+                Light
+                <svg class="bi ms-auto d-none" width="1em" height="1em">
+                  <use href="#check2"></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                aria-pressed="false">
+                <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                  <use href="#moon-stars-fill"></use>
+                </svg>
+                Dark
+                <svg class="bi ms-auto d-none" width="1em" height="1em">
+                  <use href="#check2"></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+                aria-pressed="true">
+                <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                  <use href="#circle-half"></use>
+                </svg>
+                Auto
+                <svg class="bi ms-auto d-none" width="1em" height="1em">
+                  <use href="#check2"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropup">
+            <button class="btn btn-dark py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+              aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+              <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+                <use href="#circle-half"></use>
+              </svg>
+              <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                  aria-pressed="false">
+                  <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                    <use href="#sun-fill"></use>
+                  </svg>
+                  Light
+                  <svg class="bi ms-auto d-none" width="1em" height="1em">
+                    <use href="#check2"></use>
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                  aria-pressed="false">
+                  <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                    <use href="#moon-stars-fill"></use>
+                  </svg>
+                  Dark
+                  <svg class="bi ms-auto d-none" width="1em" height="1em">
+                    <use href="#check2"></use>
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+                  aria-pressed="true">
+                  <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                    <use href="#circle-half"></use>
+                  </svg>
+                  Auto
+                  <svg class="bi ms-auto d-none" width="1em" height="1em">
+                    <use href="#check2"></use>
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div> -->
+    </div>
+  </nav>
 
 </body>
 
