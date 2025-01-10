@@ -83,7 +83,7 @@
       display: block !important;
     }
   </style>
-  <script type="module" crossorigin src="/todolist/index.sLH7u9Cu.js"></script>
+  <script type="module" crossorigin src="/todolist/index.COe-waAA.js"></script>
   <link rel="stylesheet" crossorigin href="/todolist/index.css">
 <link rel="manifest" href="/todolist/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/todolist/registerSW.js"></script></head>
 
@@ -158,20 +158,25 @@
 
 
   <main class="container">
-    <div class="bg-body-tertiary p-1 rounded">
-      <div class="d-flex flex-column p-4 gap-4 py-md-5 align-items-center justify-content-center">
+    <div class="mb-2 pt-3 d-flex justify-content-between">
+      <h5 class="text-primary fw-bold text-uppercase">lista de tarefas</h5>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical mt-1" viewBox="0 0 16 16">
+        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+      </svg>
+    </div>
+    
+      <div class="d-flex flex-column pb-4 gap-4 align-items-center justify-content-center">
         <div class="col-12">
-
           <form id="form-add-taks">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Digite o titulo de sua tarefa"
+              <input type="text" class="form-control" placeholder="Digite sua tarefa"
                 aria-label="Recipient's username" aria-describedby="button-addon2" required>
               <button class="btn btn-outline-success" type="submit" id="button-addon2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus"
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
                   viewBox="0 0 16 16">
                   <path
                     d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-                </svg> Adicionar tarefa
+                </svg>
               </button>
             </div>
           </form>
@@ -205,7 +210,7 @@
           <!-- <h5 class="text-body-tertiary text-center">Sua lista de tarefas está vazia.</h5> -->
         </div>
       </div>
-    </div>
+    
   </main>
 
 </body>
