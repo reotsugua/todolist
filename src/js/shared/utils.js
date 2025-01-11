@@ -1,4 +1,4 @@
-import { getTasks_DB, createTask_DB, updateTasks_DB, deleteTask_DB, gerateId, updateStatusTasks_DB } from "../core/serviceTask.js";
+import { getTasks_DB, createTask_DB, updateTasks_DB, deleteTask_DB, gerateId, updateStatusTasks_DB, clear_DB } from "../core/serviceTask.js";
 
 const htmlTask = (name, checked) => `
     <input class="form-check-input flex-shrink-0" type="checkbox" ${checked ? 'checked' : ''} style="font-size: 1.375em;">
@@ -79,4 +79,9 @@ const updateStatusTaskToList = (titleListItem, statusCheckbox) => {
     updateStatusTasks_DB(titleListItem, statusCheckbox);
 };
 
-export {addTaskToList, listTasksToDB, updateTaskToList, deleteTaskToList, updateStatusTaskToList};
+const clearTaskToList = () => {
+    taskList.innerHTML = '';
+    clear_DB();
+};
+
+export {addTaskToList, listTasksToDB, updateTaskToList, deleteTaskToList, updateStatusTaskToList, clearTaskToList};

@@ -60,6 +60,9 @@ function deleteTask_DB(titleTask) {
     localStorage.setItem(_DB, JSON.stringify(arrTasks));
 }
 
+function clear_DB() {
+    localStorage.setItem(_DB, JSON.stringify([]));
+}
 
 
-export { createTask_DB, getTasks_DB, updateTasks_DB, deleteTask_DB, gerateId, updateStatusTasks_DB};
+export { createTask_DB, getTasks_DB, updateTasks_DB, deleteTask_DB, gerateId, updateStatusTasks_DB, clear_DB};
