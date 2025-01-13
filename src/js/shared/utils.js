@@ -95,7 +95,7 @@ const updateStatusTaskToList = (itemList, statusCheckbox) => {
             toast: true,
             position: "bottom-end",
             showConfirmButton: false,
-            timer: 1500,
+            timer: 1300,
             timerProgressBar: true,
             width: '18em'
         })
