@@ -1,7 +1,8 @@
-import { addTaskToList, listTasksToDB, updateTaskToList, deleteTaskToList, updateStatusTaskToList, clearTaskToList } from "../shared/utils.js";
+import { addTaskToList, listTasksFromDB, updateTaskToList, deleteTaskToList, updateStatusTaskToList, clearTaskToList } from "../shared/utils.js";
 
 const formAddTaks = document.getElementById('form-add-taks');
-const tasksList = document.querySelector('.list-group');
+const pendingTaskList = document.getElementById('pending-list');
+const completeTaskList = document.getElementById('complete-list');
 const btnDeleteAllTasks = document.getElementById('delete-all');
 
 const createTask = e => {
@@ -37,22 +38,35 @@ const deleteTask = e => {
 
 const updateStatusTask = e => {
     const checkbox = e.target;
-    const label = checkbox.labels[0];
+    const label = checkbox.offsetParent;
     if (!checkbox || !label) return;
 
-    updateStatusTaskToList(label.textContent.trim(), checkbox.checked);
+    
+    updateStatusTaskToList(label, checkbox.checked);
 }
 
 const removeAllTasks = () => {
-    tasksList &&
-        confirm('Esta ação excluirá todas as tarefas. Clique em "OK" para continuar.') &&
-        clearTaskToList();
+    const tabSelect = document.querySelector('.nav-link.active').textContent;
+    
+    const verify = {
+        'Pendentes' : pendingTaskList,
+        'Completas' : completeTaskList
+    }
+    
+    verify[tabSelect] &&
+        confirm(`Esta ação excluirá todas as tarefas "${tabSelect}". Clique em "OK" para continuar.`) &&
+        clearTaskToList(verify[tabSelect]);
 }
 
 formAddTaks.addEventListener('submit', createTask);
-tasksList.addEventListener('click', updateTask);
-tasksList.addEventListener('click', deleteTask);
-tasksList.addEventListener('change', updateStatusTask);
+
+pendingTaskList.addEventListener('click', updateTask);
+pendingTaskList.addEventListener('click', deleteTask);
+pendingTaskList.addEventListener('change', updateStatusTask);
+
+completeTaskList.addEventListener('click', deleteTask);
+completeTaskList.addEventListener('change', updateStatusTask);
+
 btnDeleteAllTasks.addEventListener('click', removeAllTasks);
 
-document.addEventListener('DOMContentLoaded', listTasksToDB);
+document.addEventListener('DOMContentLoaded', listTasksFromDB);

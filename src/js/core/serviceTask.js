@@ -60,8 +60,22 @@ function deleteTask_DB(titleTask) {
     localStorage.setItem(_DB, JSON.stringify(arrTasks));
 }
 
-function clear_DB() {
-    localStorage.setItem(_DB, JSON.stringify([]));
+function clear_DB(tabStatus) {
+    const arrTasks = getTasks_DB();
+
+    const status = {
+        'pending-list' : false,
+        'complete-list' : true
+    }
+
+    if (!(tabStatus in status)) {
+        console.error('Invalid tabStatus:', tabStatus);
+        return;
+    }
+
+    const filteredTasks = arrTasks.filter(({completed})=>completed !== status[tabStatus]);
+
+    localStorage.setItem(_DB, JSON.stringify(filteredTasks));
 }
 
 

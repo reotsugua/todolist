@@ -168,7 +168,7 @@
       <div
         class="d-flex flex-column pb-4 gap-4 align-items-center justify-content-center"
       >
-        <div class="col-12">
+        <!-- <div class="col-12">
           <form id="form-add-taks">
             <div class="input-group">
               <input
@@ -199,43 +199,84 @@
               </button>
             </div>
           </form>
-        </div>
-        <div class="list-group">
-          <!-- <label class="list-group-item list-group-item-action cursor-pointer d-flex gap-3">
-            <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
-            <span class="pt-1 form-checked-content">
-              <strong>${value}</strong>
-              <small class="d-block text-body-secondary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-calendar-event me-1" viewBox="0 0 16 16">
-                  <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
-                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
-                </svg>
-                1:00–2:00pm
-              </small>
-            </span>
-            <div class="ms-auto align-content-around">
-              <a href="#" class="icon-link icon-link-hover" title="Editar Tarefa">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill me-2 text-primary" viewBox="0 0 16 16">
-                  <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
-                </svg>
-              </a>
-              <a href="#" class="icon-link icon-link-hover" title="Deletar Tarefa">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill text-danger" viewBox="0 0 16 16">
-                  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                </svg>
-              </a>
+        </div> -->
+        <div class="tab-content col-12">
+          <div class="tab-pane fade show active" id="pending-tab-pane" role="tabpanel" aria-labelledby="pending-tab" tabindex="0">
+            <div class="mb-3">
+              <form id="form-add-taks">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Digite suas tarefas"
+                    aria-label="Recipient's username"
+                    aria-describedby="button-addon2"
+                    required
+                  />
+                  <button
+                    class="btn btn-outline-success"
+                    type="submit"
+                    id="button-addon2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-plus"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </form>
             </div>
-          </label> -->
-          <!-- <h5 class="text-body-tertiary text-center">Sua lista de tarefas está vazia.</h5> -->
+            <div id="pending-list" class="list-group mx-auto">
+              <!-- <label class="list-group-item list-group-item-action cursor-pointer d-flex gap-3">
+                <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
+                <span class="pt-1 form-checked-content">
+                  <strong>${value}</strong>
+                  <small class="d-block text-body-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-calendar-event me-1" viewBox="0 0 16 16">
+                      <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                      <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                    </svg>
+                    1:00–2:00pm
+                  </small>
+                </span>
+                <div class="ms-auto align-content-around">
+                  <a href="#" class="icon-link icon-link-hover" title="Editar Tarefa">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill me-2 text-primary" viewBox="0 0 16 16">
+                      <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+                    </svg>
+                  </a>
+                  <a href="#" class="icon-link icon-link-hover" title="Deletar Tarefa">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill text-danger" viewBox="0 0 16 16">
+                      <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                    </svg>
+                  </a>
+                </div>
+              </label> -->
+              <!-- <h5 class="text-body-tertiary text-center">Sua lista de tarefas está vazia.</h5> -->
+            </div>
+          </div>
+          <div class="tab-pane fade" id="complete-tab-pane" role="tabpanel" aria-labelledby="complete-tab" tabindex="0">
+            <div id="complete-list" class="list-group mx-auto">
+              
+            </div>
+          </div>
         </div>
       </div>
     </main>
 
-    <nav class="fixed-bottom">
-      <div class="container-fluid d-flex justify-content-between">
-        <div class="align-self-center px-3">
-          <a class="navbar-brand me-3" href="#">Pendentes</a>
-          <a class="navbar-brand" href="#">Completas</a>
+    <nav class="fixed-bottom bg-body">
+      <div class="container d-flex justify-content-between">
+        <div class="nav nav-underline px-3" role="tablist">
+          <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#pending-tab-pane" type="button" role="tab" aria-controls="pending-tab-pane" aria-selected="true">Pendentes</a>
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#complete-tab-pane" type="button" role="tab" aria-controls="complete-tab-pane" aria-selected="false">Completas</a>
         </div>
         <ul class="navbar-nav">
           <li class="nav-item dropup">

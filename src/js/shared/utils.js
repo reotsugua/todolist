@@ -19,6 +19,8 @@ const htmlTask = (name, checked) => `
     </div>
 `
 const taskList = document.querySelector('.list-group');
+const pendingList = document.getElementById('pending-list');
+const completeList = document.getElementById('complete-list');
 
 const addTaskToList = valueInput => {
     const label = document.createElement('label');
@@ -33,21 +35,29 @@ const addTaskToList = valueInput => {
     createTask_DB(_id, valueInput);
 };
 
-const listTasksToDB = () => {
+const listTasksFromDB = () => {
     const arrFromDb = getTasks_DB();
     if (arrFromDb.length === 0) return console.log('nada pra listar');
     
-    const arrTasks = [];
-    arrFromDb.forEach(({id, name, completed}) => {
-        const label = `
+    const htmlPendingTask = [];
+    const htmlCompleteTask = [];
+    
+    const createTaksHtml = ({id, name, completed}) => {
+        return `
             <label class="list-group-item list-group-item-action cursor-pointer d-flex gap-3" data-id="${id}">
                 ${htmlTask(name, completed)}
             </label>
         `; 
-        arrTasks.push(label);        
-    });
+    }
 
-    taskList.innerHTML = arrTasks.join('');
+    const arrPendingTask = arrFromDb.filter(({completed})=> !completed);
+    const arrCompleteTask = arrFromDb.filter(({completed})=> completed);
+    
+    arrPendingTask.forEach(task=>htmlPendingTask.push(createTaksHtml(task)));
+    arrCompleteTask.forEach(task =>htmlCompleteTask.push(createTaksHtml(task)));
+
+    pendingList.innerHTML = htmlPendingTask.join('');
+    completeList.innerHTML = htmlCompleteTask.join('');
 };
 
 const updateTaskToList = (listItem) => {
@@ -73,15 +83,19 @@ const deleteTaskToList = (listItem) => {
     }
 };
 
-const updateStatusTaskToList = (titleListItem, statusCheckbox) => {
+const updateStatusTaskToList = (itemList, statusCheckbox) => {
     // Era pra checked + riscar name, mas o css ja ta fazendo isso.
-    
+    (statusCheckbox ? completeList : pendingList).append(itemList);
+
+    const titleListItem = itemList.textContent.trim();
     updateStatusTasks_DB(titleListItem, statusCheckbox);
 };
 
-const clearTaskToList = () => {
-    taskList.innerHTML = '';
-    clear_DB();
+const clearTaskToList = tabSelect => {
+    tabSelect.innerHTML = '';
+    
+    const tabStatus = tabSelect.id;
+    clear_DB(tabStatus);
 };
 
-export {addTaskToList, listTasksToDB, updateTaskToList, deleteTaskToList, updateStatusTaskToList, clearTaskToList};
+export {addTaskToList, listTasksFromDB, updateTaskToList, deleteTaskToList, updateStatusTaskToList, clearTaskToList};
