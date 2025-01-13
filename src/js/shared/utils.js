@@ -1,4 +1,5 @@
 import { getTasks_DB, createTask_DB, updateTasks_DB, deleteTask_DB, gerateId, updateStatusTasks_DB, clear_DB } from "../core/serviceTask.js";
+import Swal from 'sweetalert2';
 
 const htmlTask = (name, checked) => `
     <input class="form-check-input flex-shrink-0" type="checkbox" ${checked ? 'checked' : ''} style="font-size: 1.375em;">
@@ -86,8 +87,19 @@ const deleteTaskToList = (listItem) => {
 const updateStatusTaskToList = (itemList, statusCheckbox) => {
     // Era pra checked + riscar name, mas o css ja ta fazendo isso.
     (statusCheckbox ? completeList : pendingList).append(itemList);
-
+    
     const titleListItem = itemList.textContent.trim();
+    Swal.fire({
+            title: `Tarefa enviada para ${statusCheckbox ? '"Completas"' : '"Pendentes"'}!`,
+            icon: `${statusCheckbox ? 'success' : 'warning'}`,
+            toast: true,
+            position: "bottom-end",
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+            width: '18em'
+        })
+
     updateStatusTasks_DB(titleListItem, statusCheckbox);
 };
 

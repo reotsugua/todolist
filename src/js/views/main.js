@@ -41,7 +41,6 @@ const updateStatusTask = e => {
     const label = checkbox.offsetParent;
     if (!checkbox || !label) return;
 
-    
     updateStatusTaskToList(label, checkbox.checked);
 }
 
