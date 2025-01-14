@@ -74,7 +74,30 @@
           setStoredTheme(theme)
           setTheme(theme)
           showActiveTheme(theme, true)
+
+          // codigo manual
+          if (document.documentElement.getAttribute('data-bs-theme') === 'dark') {
+            document.querySelector('.z-n1').classList.add('d-none');
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#212529'); // Exemplo de cor nova
+
+          } else {
+            document.querySelector('.z-n1').classList.remove('d-none');
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0D6EFD'); // Exemplo de cor nova
+          }
         })
       })
+
+    // codigo manual
+    if (document.documentElement.getAttribute('data-bs-theme') === 'dark') {
+      document.querySelector('.z-n1').classList.add('d-none');
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#212529'); // Exemplo de cor nova
+
+    } else {
+      document.querySelector('.z-n1').classList.remove('d-none');
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0D6EFD'); // Exemplo de cor nova
+
+    }
+
+
   })
 })()
