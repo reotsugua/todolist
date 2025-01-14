@@ -4,6 +4,7 @@ const formAddTaks = document.getElementById('form-add-taks');
 const pendingTaskList = document.getElementById('pending-list');
 const completeTaskList = document.getElementById('complete-list');
 const btnDeleteAllTasks = document.getElementById('delete-all');
+const navbarStatus = document.querySelector('.nav-underline');
 
 const createTask = e => {
     e.preventDefault();
@@ -64,6 +65,14 @@ const removeAllTasks = () => {
         clearTaskToList(verify[tabSelect]);
 }
 
+const hideHubButtons = () => {
+    const hubButtons = document.querySelectorAll('.hub-buttons');
+    
+    hubButtons.forEach(hubButtons=>{
+        hubButtons.classList.toggle('d-none');
+    })
+}
+
 formAddTaks.addEventListener('submit', createTask);
 
 pendingTaskList.addEventListener('click', updateTask);
@@ -74,5 +83,7 @@ completeTaskList.addEventListener('click', deleteTask);
 completeTaskList.addEventListener('change', updateStatusTask);
 
 btnDeleteAllTasks.addEventListener('click', removeAllTasks);
+
+navbarStatus.addEventListener('click', hideHubButtons);
 
 document.addEventListener('DOMContentLoaded', listTasksFromDB);
