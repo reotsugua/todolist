@@ -29,7 +29,7 @@ export default {
         name: 'Todolist por Renan Augusto',
         short_name: 'Todolist',
         description: 'Descrição do Todolist',
-        theme_color: '#FFFFFF',
+        theme_color: '#0D6EFD',
         icons: [{
             src: 'android-chrome-192x192.png',
             sizes: '192x192',
@@ -41,7 +41,7 @@ export default {
             type: 'image/png'
           }
         ],
-        background_color: "#FFFFFF",
+        background_color: "#0D6EFD",
         display: "standalone",
         scope: "/",
         shortcuts: [{
