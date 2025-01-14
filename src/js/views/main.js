@@ -41,7 +41,14 @@ const updateStatusTask = e => {
     const label = checkbox.offsetParent;
     if (!checkbox || !label) return;
 
-    updateStatusTaskToList(label, checkbox.checked);
+    const handleTransitionEnd = () => {
+        label.removeEventListener('transitionend', handleTransitionEnd)
+
+        updateStatusTaskToList(label, checkbox.checked);
+    }
+
+    label.classList.remove('show');
+    label.addEventListener('transitionend', handleTransitionEnd)
 }
 
 const removeAllTasks = () => {
@@ -49,7 +56,7 @@ const removeAllTasks = () => {
     
     const verify = {
         'Pendentes' : pendingTaskList,
-        'Completas' : completeTaskList
+        'Concluídas' : completeTaskList
     }
     
     verify[tabSelect] &&

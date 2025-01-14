@@ -25,7 +25,7 @@ const completeList = document.getElementById('complete-list');
 
 const addTaskToList = valueInput => {
     const label = document.createElement('label');
-    label.classList.add('list-group-item', 'list-group-item-action', 'cursor-pointer', 'd-flex', 'gap-3');
+    label.classList.add('list-group-item', 'list-group-item-action', 'cursor-pointer', 'd-flex', 'gap-3', 'fade', 'show');
 
     const _id = gerateId();
     label.setAttribute('data-id', _id);
@@ -45,7 +45,7 @@ const listTasksFromDB = () => {
     
     const createTaksHtml = ({id, name, completed}) => {
         return `
-            <label class="list-group-item list-group-item-action cursor-pointer d-flex gap-3" data-id="${id}">
+            <label class="list-group-item list-group-item-action cursor-pointer d-flex gap-3 fade show" data-id="${id}">
                 ${htmlTask(name, completed)}
             </label>
         `; 
@@ -87,10 +87,10 @@ const deleteTaskToList = (listItem) => {
 const updateStatusTaskToList = (itemList, statusCheckbox) => {
     // Era pra checked + riscar name, mas o css ja ta fazendo isso.
     (statusCheckbox ? completeList : pendingList).append(itemList);
-    
+    itemList.classList.add('show');
     const titleListItem = itemList.textContent.trim();
     Swal.fire({
-            title: `Tarefa enviada para ${statusCheckbox ? '"Completas"' : '"Pendentes"'}!`,
+            title: `Tarefa enviada para ${statusCheckbox ? '"Concluídas"' : '"Pendentes"'}!`,
             icon: `${statusCheckbox ? 'success' : 'warning'}`,
             toast: true,
             position: "bottom-end",
